@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  script(src='/javascripts/project/index.js', type='text/javascript')
+  .login-screen
+    svg(width="89", height="70", viewBox="0 0 89 70")
+      g(transform="translate(0,-982.36218)")
+        path(id="path2986", d="m 34.29999,1046.5622 -4.19999,-4.2 47.99999,-48.00002 4.2,4.2 -48,48.00002 z m -5.99999,-6 -4.2,-4.2 47.99999,-48.00002 4.2,4.2 L 28.3,1040.5622 z M 70.29999,986.56218 22.3,1034.5622 l -4.2,-4.2 47.99999,-48.00002 4.2,4.2 z M 12,1024.3622 l 9,-9 4.2,4.2 -9,9 -4.2,-4.2 z m 7.3,-10.8 -9,9 -4.2,-4.2 9,-9 4.2,4.2 z m -10.3,-10.3 4.2,4.2 -9,9 -4.2,-4.2 9,-9 z m 26.99999,45 47.999997,-48 4.1,4.1 -47.999997,48 -4.1,-4.1 z", clip-rule="evenodd", style="fill-rule:evenodd")
+    h1 WEEK.CARDS
+    .text1 A weeklong view of your tasks. Plan your week accordingly.
+    .text2
+      span Use tasks from
+      a(href='/login/asana')
+        img(src="/images/asana-oauth-button-blue.png")
+      a(href='/login/asana')
+        img(src="/images/asana-oauth-button-blue.png")

@@ -1,0 +1,47 @@
+extends layout
+
+block content
+  script(src='//cdnjs.cloudflare.com/ajax/libs/nanobar/0.2.1/nanobar.min.js', type='text/javascript')
+  script(src='//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js', type='text/javascript')
+  script(src='/javascripts/project/tasks.js', type='text/javascript')
+  script(src='/javascripts/project/api.js', type='text/javascript')
+  #task-manager(ng-app="tasksApp", ng-controller="tasksCntr")
+    #progress-container(ng-show="loading")
+      #progress
+      .value {{progress}}%
+    #tasks-interface(ng-if="!loading")
+      .time-column
+      .week-row.week-row-caption
+        .week-column.caption Inbox
+        .week-column.caption(ng-class="{active: getCurrentDay() == 1}") Mon
+        .week-column.caption(ng-class="{active: getCurrentDay() == 2}") Tue
+        .week-column.caption(ng-class="{active: getCurrentDay() == 3}") Wed
+        .week-column.caption(ng-class="{active: getCurrentDay() == 4}") Thurs
+        .week-column.caption(ng-class="{active: getCurrentDay() == 5}") Fri
+        .week-column.caption Future
+      .week-row.week-row-tasks
+        .week-column.day-column(day="0", column="1" nextorder="{{tasksOrderNext[1]}}")
+          div.task.draggable(ng-repeat="task in getInbox()", model="task" project="projects[task.projectId]" order="{{tasksOrder[1][task.id]}}" ng-class="{mctask: isMovedCopy(task)}")
+        .week-column.day-column(day="1", column="2" nextorder="{{tasksOrderNext[2]}}")
+          div.task.draggable(ng-repeat="task in getDayTasks(1)", model="task" project="projects[task.projectId]" order="{{tasksOrder[2][task.id]}}" ng-class="{mctask: isMovedCopy(task)}")
+        .week-column.day-column(day="2", column="3" nextorder="{{tasksOrderNext[3]}}")
+          div.task.draggable(ng-repeat="task in getDayTasks(2)", model="task" project="projects[task.projectId]" order="{{tasksOrder[3][task.id]}}" ng-class="{mctask: isMovedCopy(task)}")
+        .week-column.day-column(day="3", column="4" nextorder="{{tasksOrderNext[4]}}")
+          div.task.draggable(ng-repeat="task in getDayTasks(3)", model="task" project="projects[task.projectId]" order="{{tasksOrder[4][task.id]}}" ng-class="{mctask: isMovedCopy(task)}")
+        .week-column.day-column(day="4", column="5" nextorder="{{tasksOrderNext[5]}}")
+          div.task.draggable(ng-repeat="task in getDayTasks(4)", model="task" project="projects[task.projectId]" order="{{tasksOrder[5][task.id]}}" ng-class="{mctask: isMovedCopy(task)}")
+        .week-column.day-column(day="5", column="6" nextorder="{{tasksOrderNext[6]}}")
+          div.task.draggable(ng-repeat="task in getDayTasks(5)", model="task" project="projects[task.projectId]" order="{{tasksOrder[6][task.id]}}" ng-class="{mctask: isMovedCopy(task)}")
+        .week-column.day-column(day="6", column="7" nextorder="{{tasksOrderNext[7]}}")
+          div.task.draggable(ng-repeat="task in getFutureTasks()", model="task" project="projects[task.projectId]" order="{{tasksOrder[7][task.id]}}" ng-class="{mctask: isMovedCopy(task)}")
+        .clear
+    #logo
+      svg(width="44", height="35", viewBox="0 0 89 70")
+        g(transform="translate(0,-982.36218)")
+          path(id="path2986", d="m 34.29999,1046.5622 -4.19999,-4.2 47.99999,-48.00002 4.2,4.2 -48,48.00002 z m -5.99999,-6 -4.2,-4.2 47.99999,-48.00002 4.2,4.2 L 28.3,1040.5622 z M 70.29999,986.56218 22.3,1034.5622 l -4.2,-4.2 47.99999,-48.00002 4.2,4.2 z M 12,1024.3622 l 9,-9 4.2,4.2 -9,9 -4.2,-4.2 z m 7.3,-10.8 -9,9 -4.2,-4.2 9,-9 4.2,4.2 z m -10.3,-10.3 4.2,4.2 -9,9 -4.2,-4.2 9,-9 z m 26.99999,45 47.999997,-48 4.1,4.1 -47.999997,48 -4.1,-4.1 z", clip-rule="evenodd", style="fill-rule:evenodd")
+      .logotext WEEK.CARDS
+    #logout
+      a(href="/")
+      svg(width="16", height="16", viewBox="0 0 16 16")
+        g
+          path(d="M16,8l-4.1-4.1V7h-6v2h6v3.1L16,8z M7.9,14h-6V2h6v3h2V0H0v16h9.9v-5h-2V14z")

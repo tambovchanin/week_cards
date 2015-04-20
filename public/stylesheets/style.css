@@ -1,0 +1,315 @@
+@font-face {
+	font-family: BrandonBlk;
+	src: url(../fonts/Brandon_blk.otf);
+}
+@font-face {
+	font-family: BrandonLight;
+	src: url(../fonts/Brandon_light.otf);
+}
+@font-face {
+	font-family: HevleticaHv;
+	src: url(../fonts/HelveticaNeueLTPro-Hv.otf);
+}
+@font-face {
+	font-family: HevleticaRoman;
+	src: url(../fonts/HelveticaNeueLTPro-Roman.otf);
+}
+@font-face {
+	font-family: HevleticaTh;
+	src: url(../fonts/HelveticaNeueLTPro-Th.otf);
+}
+
+body {
+	font: 14pt "BrandonLight", Helvetica, Arial, sans-serif;
+	background: #fafafa;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.login-screen {
+	text-align: center;
+	padding-top: 110px;
+	font-size: 17pt;
+}
+
+.login-screen h1 {
+	margin-top: 27px;
+	font-size: 15pt;
+	letter-spacing: 0.7ex;
+}
+
+.login-screen svg path {
+	fill: #60AE02;
+}
+
+.login-screen .text1 {
+	margin-top: 50px;
+}
+
+.login-screen .text2 {
+	margin-top: 130px;
+	display: inline-block;
+	width: 670px;
+	position: relative;
+}
+
+.login-screen .text2 span {
+	display: inline-block;
+	line-height: 28px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+
+.login-screen .text2 a {
+	display: inline-block;
+	margin: 0 3px;
+}
+
+#progress-container {
+	margin-top: 300px;
+	text-align: center;
+}
+
+#progress-container #progress {
+	display: inline-block;
+	width: 33%;
+}
+
+#progress-container .value {
+	display: inline-block;
+	width: 60px;
+}
+
+#tasks-interface .time-column {
+	width: 130px;
+	min-height: 100px;
+	float: left;
+}
+
+#tasks-interface .week-row {
+	margin-left: 130px;
+}
+
+#tasks-interface .week-row-caption {
+	padding-top: 90px;
+	z-index: 10;
+	background: #fafafa;
+	height: 40px;
+}
+
+#tasks-interface.scrolled .week-row-caption {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	padding-top: 30px;
+	box-shadow: 2px 3px 5px -3px rgba(0, 0, 0, 0.4);
+}
+
+#tasks-interface .week-row-tasks {
+	min-height: 100px;
+	position: relative;
+}
+
+#tasks-interface.scrolled .week-row-tasks {
+	margin-top: 130px;
+}
+
+#tasks-interface .week-column {
+	width: 14.2857143%;
+	float: left;
+	min-height: 13px;
+}
+
+#tasks-interface .week-column.caption {
+	text-align: center;
+	font-size: 18px;
+	line-height: 13px;
+	font-family: "HevleticaTh", Helvetica, Arial, sans-serif;
+}
+
+#tasks-interface .week-column.caption.active {
+	font-family: "HevleticaHv", Helvetica, Arial, sans-serif;
+}
+
+.task {
+	margin: 0 3px 6px 3px;
+	box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.4);
+	background: #fff;
+	font-size: 13px;
+	font-family: "HevleticaRoman", Helvetica, Arial, sans-serif;
+	position: relative;
+	z-index: 5;
+}
+
+.task a {
+	display: block;
+	z-index: 6;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+.task .task-container {
+	padding: 15px;
+}
+
+.task .task-container.overdue {
+	padding: 13px;
+	border: 2px solid red;
+}
+
+.task .task-project-caption {
+	font-size: 9px;
+	font-family: "HevleticaHv", Helvetica, Arial, sans-serif;
+	margin-top: 12px;
+	text-transform: uppercase;
+}
+
+.task .task-undermessage {
+	font-size: 9px;
+	font-family: "HevleticaHv", Helvetica, Arial, sans-serif;
+	color: red;
+	text-transform: uppercase;
+}
+
+.task .task-undermessage.next-week {
+    color: #b1b1b1;
+}
+
+.task .completed {
+	color: #b1b1b1;
+}
+
+.task .completed .task-caption {
+	text-decoration: line-through;
+}
+
+.task .task-project-caption i.fa {
+	float: right;
+	position: relative;
+	z-index: 7;
+	cursor: default;
+	top: -1px;
+	font-size: 13px;
+	text-align: left;
+	width: 13px;
+}
+.task .task-project-caption i.fa.hover-show {
+	display: none;
+}
+.task:hover .task-project-caption i.fa.hover-hide {
+	display: none;
+}
+.task:hover .task-project-caption i.fa.hover-show {
+	display: block;
+}
+
+.task .task-description {
+	margin-top: 15px;
+	padding-top: 15px;
+	border-top: 1px solid #eee;
+	display: none;
+	font-size: 11px;
+	font-family: "HevleticaRoman", Helvetica, Arial, sans-serif;
+}
+
+.task.hovered .task-description {
+	display: block;
+}
+
+.task.moved {
+	position: absolute;
+	box-shadow: 0px 7px 20px 0px rgba(0, 0, 0, 0.4);
+}
+
+.task.mctask {
+	box-shadow: none;
+}
+.task .movedcopy {
+	background: #eee;
+	padding: 15px !important;
+	border: none !important;
+}
+.task .movedcopy * {
+	visibility: hidden;
+}
+
+.clear {
+	clear: both;
+	min-height: 1px;
+}
+
+#task-manager #logo {
+	position: fixed;
+	right: 30px;
+	bottom: 30px;
+	text-align: center;
+}
+
+#task-manager #logout {
+	position: fixed;
+	left: 30px;
+	bottom: 30px;
+	display: block;
+}
+
+#task-manager #logout a {
+	display: block;
+	position: absolute;
+	z-index: 1;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+#task-manager #logo {
+    z-index: -999;
+}
+
+#task-manager #logo svg path,
+#task-manager #logout svg path {
+	fill: #ccc;
+}
+
+#task-manager #logo .logotext {
+	margin-top: 13px;
+	font-size: 8px;
+	letter-spacing: 0.7ex;
+	font-family: "BrandonBlk", Helvetica, Arial, sans-serif;
+	color: #ccc;
+}
+
+#timeline {
+	position: absolute;
+	left: -130px;
+	right: -3px;
+	z-index: 2;
+}
+
+#timeline .timeline-time {
+	font-size: 10px;
+	line-height: 10px;
+	font-family: "HevleticaHv", Helvetica, Arial, sans-serif;
+	position: absolute;
+	top: 0px;
+	left: 20px;
+	padding: 0 10px;
+	z-index: 3;
+	background: #fafafa;
+}
+
+#timeline .timeline-line {
+	position: absolute;
+	z-index: 2;
+	border-top: 1px solid #ccc;
+	top: 4px;
+	left: 0px;
+	right: 0px;
+}
